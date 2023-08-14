@@ -1,10 +1,22 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class VerificaNumeroPrimo {
 
     public static void main(String[] args) {
-        Integer[] numeros = {13, 507, 991, 809, 1555};
-        for (Integer i : numeros) {
-            //int number = Integer.parseInt(arg);
-            Thread thread = new Thread(new Threads(i));
+        ArrayList<Integer> lista = new ArrayList<>();
+        Scanner leitor = new Scanner(System.in);
+        System.out.println("O número é primo ? ou não ?");
+        System.out.println();
+        System.out.println("Digite a quantidade de números que você deseja saber: ");
+        int quant = Integer.parseInt(leitor.nextLine());
+        for (int i = 0; i < quant; i++) {
+            System.out.println("Digite o número: ");
+            Integer numeros = Integer.parseInt(leitor.nextLine());
+            lista.add(numeros);
+        }
+        for (Integer numero : lista) {
+            Thread thread = new Thread(new Threads(numero));
             thread.start();
         }
     }
